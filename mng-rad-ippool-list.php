@@ -118,6 +118,30 @@
 		$orderType = "asc";
 	}
 
+	// setting table-related parameters first
+	switch($configValues['FREERADIUS_VERSION']) {
+		case '1' :
+			$tableSetting['sqlippool']['id'] = 'id';
+			$tableSetting['sqlippool']['pool_name'] = 'pool_name';
+			$tableSetting['sqlippool']['address'] = 'framedipaddress';
+			$tableSetting['sqlippool']['owner'] = 'callingstationid';
+			$tableSetting['sqlippool']['gateway'] = 'nasipaddress';
+			$tableSetting['sqlippool']['expiry_time'] = 'expiry_time';
+			break;
+		case '2' :
+			// down
+		case '3' :
+			// down
+		default  :
+			$tableSetting['sqlippool']['id'] = 'id';
+			$tableSetting['sqlippool']['pool_name'] = 'pool_name';
+			$tableSetting['sqlippool']['address'] = 'address';
+			$tableSetting['sqlippool']['owner'] = 'owner';
+			$tableSetting['sqlippool']['gateway'] = 'gateway';
+			$tableSetting['sqlippool']['expiry_time'] = 'expiry_time';
+			break;
+	}
+
 	echo "<thread> <tr>
 		<th scope='col'>
 		<a title='Sort' class='novisit' href=\"" . $_SERVER['PHP_SELF'] . "?orderBy=id&orderType=$orderType\">
