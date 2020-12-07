@@ -51,7 +51,7 @@ if (isset($_REQUEST['search'])) {
 	$iparr = explode(".",trim($_REQUEST['search']));
 	$searchip = end($iparr);
 } else {
-	$searchip = "sxt";
+	$searchip = "";
 }
 
 function cidrToRange($cidr) {
@@ -113,7 +113,6 @@ include("menu-mng-users.php");
 	<h2 id="Intro"><a href="#">Public IP List :: <?php if (isset($subnet)) {
 				echo $subnet;
 			} ?>
-			<h144>+</h144>
 		</a>
 	</h2>
 	<form method="post" action="mng-list-ips.php" name="mtconfig">

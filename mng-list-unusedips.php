@@ -140,7 +140,6 @@ include("menu-mng-users.php");
 	<h2 id="Intro"><a href="#">Free Public IP List :: <?php if (isset($subnet)) {
 				echo $subnet;
 			} ?>
-			<h144>+</h144>
 		</a></h2>
 	<form method="post" action="mng-list-unusedips.php" name="mtconfig">
 		<table>
