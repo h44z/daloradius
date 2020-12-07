@@ -972,7 +972,8 @@ $l['ContactInfo']['Notes'] = "Notes";
 $l['ContactInfo']['EnableUserUpdate'] = "Enable User Update";
 $l['ContactInfo']['EnablePortalLogin'] = "Enable User Portal Login";
 $l['ContactInfo']['PortalLoginPassword'] = "User Portal Login Password";
-
+$l['ContactInfo']['EnodeSSID'] = "ENODE SSID";
+$l['ContactInfo']['EnodeWPA'] = "ENODE WPA";
 $l['ContactInfo']['OwnerName'] = "Owner Name";
 $l['ContactInfo']['OwnerEmail'] = "Owner Email";
 $l['ContactInfo']['ManagerName'] = "Manager Name";

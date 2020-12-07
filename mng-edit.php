@@ -57,6 +57,8 @@
 		$country = $_REQUEST['country'];
 		$zip = $_REQUEST['zip'];
 		$notes = $_REQUEST['notes'];
+		$enode_ssid = $_REQUEST['enode'];
+		$enode_wpa = $_REQUEST['enodewpa'];
 		isset ($_POST['changeUserInfo']) ? $ui_changeuserinfo = $_POST['changeUserInfo'] : $ui_changeuserinfo = "0";
 		isset($_POST['enableUserPortalLogin']) ? $ui_enableUserPortalLogin = $_POST['enableUserPortalLogin'] : $ui_enableUserPortalLogin = "0";
 		isset($_POST['portalLoginPassword']) ? $ui_PortalLoginPassword = $_POST['portalLoginPassword'] : $ui_PortalLoginPassword = "1234";
@@ -159,7 +161,7 @@
 				$sql = "INSERT INTO ".$configValues['CONFIG_DB_TBL_DALOUSERINFO'].
 					" (id, username, firstname, lastname, email, department, company, workphone, homephone, mobilephone,".
 					" address, city, state, country, zip, ".
-					" notes, changeuserinfo, portalloginpassword, enableportallogin, creationdate, creationby, updatedate, updateby) ".
+					" notes, changeuserinfo, portalloginpassword, enableportallogin, creationdate, creationby, updatedate, updateby, enode_ssid, enode_wpa) ".
 					" VALUES (0, '".$dbSocket->escapeSimple($username)."', '".
 					$dbSocket->escapeSimple($firstname)."', '".$dbSocket->escapeSimple($lastname)."', '".
 					$dbSocket->escapeSimple($email)."','".$dbSocket->escapeSimple($department)."', '".
@@ -170,7 +172,7 @@
 					$dbSocket->escapeSimple($zip)."', '".
 					$dbSocket->escapeSimple($notes)."', '".$dbSocket->escapeSimple($ui_changeuserinfo)."', '".
 					$dbSocket->escapeSimple($ui_PortalLoginPassword)."', '".$dbSocket->escapeSimple($ui_enableUserPortalLogin)."', ".
-					"'$currDate', '$currBy', NULL, NULL)";
+					"'$currDate', '$currBy', '".$dbSocket->escapeSimple($enode_ssid)."', '".$dbSocket->escapeSimple($enode_wpa)."', NULL, NULL)";
 				$res = $dbSocket->query($sql);
 				$logDebugSQL .= $sql . "\n";
 			} else {
@@ -194,7 +196,9 @@
 					"', portalloginpassword='".$dbSocket->escapeSimple($ui_PortalLoginPassword).
 					"', enableportallogin='".$dbSocket->escapeSimple($ui_enableUserPortalLogin).
 					"', updatedate='$currDate', updateby='$currBy' ".
-					" WHERE username='".$dbSocket->escapeSimple($username)."'";
+					"', enode_ssid='".$dbSocket->escapeSimple($enode_ssid).
+					"', enode_wpa='".$dbSocket->escapeSimple($enode_wpa).
+					"' WHERE username='".$dbSocket->escapeSimple($username)."'";
 				$res = $dbSocket->query($sql);
 				$logDebugSQL .= $sql . "\n";
 			}
@@ -402,7 +406,9 @@
                     case "bi_postalinvoice":
                     case "bi_faxinvoice":
                     case "bi_emailinvoice":
-      				case "bi_planname":
+					case "bi_planname":
+					case "enode":
+					case "enodewpa":
 					case "passwordOrig":
 					case "newgroups":
 					case "portalLoginPassword":
@@ -601,6 +607,8 @@
 	$ui_creationby = $row[18];
 	$ui_updatedate = $row[19];
 	$ui_updateby = $row[20];
+	$ui_enode = $row[21];
+	$ui_enode_wpa = $row[22];
 
 	/* fill-in all the user bill info details */
 	$sql = "SELECT ".
@@ -770,6 +778,17 @@ function enableUser() {
                         <img src='images/icons/comment.png' alt='Tip' border='0' />
                         <?php echo t('Tooltip','passwordTooltip') ?>
                 </div>
+                </li>
+
+				<li class='fieldset'>
+                <label for='enode' class='form'><?php echo $l['ContactInfo']['EnodeSSID']?></label>
+                <input name='enode' type='text' id='enode' value='<?php if (isset($ui_enode)) echo $ui_enode ?>' tabindex=101 />
+                </li>
+                
+				<li class='fieldset'>
+                <label for='enodewpa' class='form'><?php echo $l['ContactInfo']['EnodeWPA']?></label>
+                <input name='enodewpa' type='text' id='password' value='<?php if (isset($ui_enode_wpa)) echo $ui_enode_wpa ?>'
+                        <?php if (isset($hiddenPassword)) echo $hiddenPassword ?> tabindex=101 />
                 </li>
                 </div>
 

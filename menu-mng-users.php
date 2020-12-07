@@ -67,7 +67,14 @@
 			<img src='images/icons/userNew.gif' border='0'>
 			<?php echo t('button','ImportUsers') ?></a>
 		</li>
-		
+		<li><a href="mng-list-ips.php"><b>&raquo;</b>
+			<img src='images/icons/userList.gif' border='0'>
+			List Used IP's</a>
+		</li>
+		<li><a href="mng-list-unusedips.php"><b>&raquo;</b>
+			<img src='images/icons/userList.gif' border='0'>
+			List Free IP's</a>
+		</li>
 	</ul>
 		
 	<br/><br/>

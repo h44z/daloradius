@@ -21,4 +21,5 @@
 
         <input type='button' onclick="self.location='graphs-overall_upload.php?type=monthly&username=<?php
                 echo $username ?>'" value='Graphs - Uploads' class='button'/>
-
+        <input type='button' onclick="self.location='mng-mtconfig.php?&username=<?php
+		echo $username ?>'" value='Mikrotik Config' class='button'/>

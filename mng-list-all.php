@@ -206,7 +206,7 @@
 
 
 		$js = "javascript:ajaxGeneric('include/management/retUserInfo.php','retBandwidthInfo','divContainerUserInfo','username=".urlencode($row[0])."');";
-		$content =  '<a class="toolTip" href="mng-edit.php?username='.urlencode($row[0]).'">'.t('Tooltip','UserEdit').'</a>';
+		$content =  '<a class="toolTip" href="mng-edit.php?username='.urlencode($row[0]).'">'.t('Tooltip','UserEdit').'</a><br/><a href="mng-mtconfig.php?username='.urlencode($row[0]).'">MT Config</a>';
 		$str = addToolTipBalloon(array(
 									'content' => $content,
 									'onClick' => $js,
