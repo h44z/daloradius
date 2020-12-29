@@ -195,7 +195,7 @@
 					"', changeuserinfo='".$dbSocket->escapeSimple($ui_changeuserinfo).
 					"', portalloginpassword='".$dbSocket->escapeSimple($ui_PortalLoginPassword).
 					"', enableportallogin='".$dbSocket->escapeSimple($ui_enableUserPortalLogin).
-					"', updatedate='$currDate', updateby='$currBy' ".
+					"', updatedate='$currDate', updateby='$currBy".
 					"', enode_ssid='".$dbSocket->escapeSimple($enode_ssid).
 					"', enode_wpa='".$dbSocket->escapeSimple($enode_wpa).
 					"' WHERE username='".$dbSocket->escapeSimple($username)."'";
