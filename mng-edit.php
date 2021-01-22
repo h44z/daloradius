@@ -577,7 +577,7 @@
 
 	/* fill-in all the user info details */
 	$sql = "SELECT firstname, lastname, email, department, company, workphone, homephone, mobilephone, address, city, state, country, zip, notes, ".
-		" changeuserinfo, portalloginpassword, enableportallogin, creationdate, creationby, updatedate, updateby FROM ".
+		" changeuserinfo, portalloginpassword, enableportallogin, creationdate, creationby, updatedate, updateby, enode_ssid, enode_wpa FROM ".
 		$configValues['CONFIG_DB_TBL_DALOUSERINFO'].
 		" WHERE UserName='".
 		$dbSocket->escapeSimple($username)."'";
